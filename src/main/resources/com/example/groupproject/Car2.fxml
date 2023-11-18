@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.3650224215246637" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="746.0" prefWidth="784.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CarController">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="268.0" prefWidth="781.0">
+         <children>
+            <ImageView fx:id="carImageView" fitHeight="284.0" fitWidth="597.0" layoutX="138.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../Downloads/20Jeep-Cherokee-Jellybean-Latitude-BrightWhite.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="383.0" prefWidth="648.0">
+         <children>
+            <Accordion layoutX="22.0" layoutY="14.0" prefHeight="437.0" prefWidth="737.0">
+              <panes>
+                <TitledPane animated="false" prefHeight="243.0" prefWidth="549.0" text="Model">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="207.0" prefWidth="530.0">
+                           <children>
+                              <ChoiceBox fx:id="modelChoiceBox" layoutX="15.0" layoutY="12.0" prefWidth="150.0" />
+                              <Label fx:id="modelLabel" layoutX="15.0" layoutY="52.0" text="Model Description" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                </TitledPane>
+                <TitledPane animated="false" text="Color">
+                  <content>
+                    <AnchorPane fx:id="colorLabel" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ChoiceBox fx:id="colorChoiceBox" layoutX="14.0" layoutY="14.0" prefWidth="150.0" />
+                              <Label fx:id="colorLabel" layoutX="14.0" layoutY="50.0" text="Color Description" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                </TitledPane>
+                <TitledPane animated="false" prefWidth="202.0" text="Premium Features">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <GridPane layoutX="12.0" layoutY="2.0" prefHeight="251.0" prefWidth="722.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="37.3333740234375" minHeight="10.0" prefHeight="25.3333740234375" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="84.00001017252603" minHeight="10.0" prefHeight="84.00001017252603" valignment="TOP" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="98.6666259765625" minHeight="10.0" prefHeight="38.66670735677083" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="90.6666259765625" minHeight="10.0" prefHeight="90.6666259765625" valignment="TOP" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <CheckBox fx:id="leatherBox" mnemonicParsing="false" text="Leather Interior">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </CheckBox>
+                                    <Label prefHeight="53.0" prefWidth="321.0" text="Wrangler leather seats are easier to clean and don't absorb dirt and dust as much as cloth seats. Plus, when you go with Katzkin leather, you can make your interior as custom as you want! " textOverrun="CLIP" wrapText="true" GridPane.rowIndex="1" />
+                                    <CheckBox fx:id="drivingBox" mnemonicParsing="false" text="Driving Assit" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </CheckBox>
+                                    <Label alignment="TOP_LEFT" prefHeight="87.0" prefWidth="361.0" text="Driver assistance serves to make travel comfortable and easier, while also increasing car and road safety. While some systems help with the task of driving, others alert the driver to errors or hazards, such as lane departure detection and drowsiness detection." wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <CheckBox fx:id="cellularBox" mnemonicParsing="false" text="Cellular" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </CheckBox>
+                                    <CheckBox fx:id="windowLabel" mnemonicParsing="false" text="Tinted Windows" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </CheckBox>
+                                    <Label alignment="TOP_LEFT" prefHeight="91.0" prefWidth="333.0" text="This material is designed to darken a car's windows to block UV light and reduce glare from the sun and headlights. Car window tint film is available in a variety of materials and shades." wrapText="true" GridPane.rowIndex="3" />
+                                    <Label alignment="TOP_LEFT" prefHeight="88.0" prefWidth="361.0" text="Cellular Vehicle-to-Everything, or C-V2X, is a connected mobility platform that allows vehicles to interact with their surroundings, such as other vehicles, cyclists, pedestrians, road infrastructure, or mobile networks." wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                </TitledPane>
+                  <TitledPane animated="false" text="Shipping Location and Payment">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="15.0" layoutY="19.0" text="Place of Shipment">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox fx:id="locationChoiceBox" layoutX="14.0" layoutY="43.0" prefWidth="150.0" />
+                              <ChoiceBox fx:id="paymentChoiceBox" layoutX="14.0" layoutY="112.0" prefWidth="150.0" />
+                              <Label layoutX="14.0" layoutY="85.0" text="Payment Type">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </TitledPane>
+                  <TitledPane animated="false" prefHeight="243.0" prefWidth="737.0" text="Quote and Description">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="207.0" prefWidth="530.0">
+                           <children>
+                              <Label fx:id="descriptionLabel" layoutX="31.0" layoutY="51.0" text="Final Description of Car" />
+                              <GridPane hgap="8.0" layoutX="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="184.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Label text="Quote">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="totalTextField" editable="false" focusTraversable="false" prefWidth="229.0" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                                 </padding>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </TitledPane>
+              </panes>
+            </Accordion>
+         </children></AnchorPane>
+  </items>
+</SplitPane>
