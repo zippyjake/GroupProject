@@ -30,7 +30,7 @@
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="207.0" prefWidth="530.0">
                            <children>
                               <ChoiceBox fx:id="modelChoiceBox" layoutX="15.0" layoutY="12.0" prefWidth="150.0" />
-                              <Label fx:id="modelLabel" layoutX="15.0" layoutY="52.0" text="Model Description" />
+                              <Label fx:id="modelLabel" alignment="TOP_LEFT" layoutX="15.0" layoutY="52.0" prefHeight="191.0" prefWidth="535.0" text="Model Description" wrapText="true" />
                            </children>
                         </AnchorPane>
                   </content>
@@ -43,7 +43,7 @@
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <ChoiceBox fx:id="colorChoiceBox" layoutX="14.0" layoutY="14.0" prefWidth="150.0" />
-                              <Label fx:id="colorLabel" layoutX="14.0" layoutY="50.0" text="Color Description" />
+                              <Label fx:id="colorLabel" alignment="TOP_LEFT" layoutX="14.0" layoutY="50.0" prefHeight="175.0" prefWidth="499.0" text="Color Description" wrapText="true" />
                            </children>
                         </AnchorPane>
                   </content>
