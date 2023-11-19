@@ -17,16 +17,20 @@ public class Car {
     private Boolean assist;
     private Boolean tinted;
     private Boolean cellular;
+    private double basePrice;//TEMPORARY
     private double totalCost;
 
     //constructor
-    public Car(String make,String model, String color,Boolean leather, Boolean assist,Boolean tinted,Boolean cellular, double totalCost) {
+    public Car(String make,String model, String color,Boolean leather, Boolean assist,Boolean tinted,
+               Boolean cellular,double basePrice, double totalCost) {
         this.make = make;
         this.model = model;
         this.color = color;
         this.leather = leather;
         this.assist = assist;
+        this.cellular= cellular;
         this.tinted = tinted;
+        this.basePrice = basePrice;
         this.totalCost = totalCost;
     }
 
@@ -60,6 +64,10 @@ public class Car {
         return tinted;
     }
 
+    public double getBasePrice() {
+        return basePrice;
+    }
+
     public double getTotalCost() {
         return totalCost;
     }
@@ -91,20 +99,25 @@ public class Car {
     public void setTinted(Boolean tinted) {
         this.tinted = tinted;
     }
+
+    public void setBasePrice(double basePrice) {
+        this.basePrice = basePrice;
+    }
+
     public void setTotalCost(double totalCost) {
         this.totalCost = totalCost;
     }
     public void CalculateCost() {
-        this.totalCost = 1000000;
+        this.totalCost = basePrice*1.2;//PLACEHOLDER
     }
 
     //detailed description
-    public String getDisc(){
-        return String.format("%s %s",this.getMake(),this.getModel());
+    public String getDesc(){
+        return String.format("%s %s",this.getMake(),this.getModel());//PLACEHOLDER
     }
     //Basic description
     @Override
     public String toString() {
-        return String.format("%s %s",this.getMake(),this.getModel());
+        return String.format("%s %s",this.getMake(),this.getModel());//PLACEHOLDER
     }
 }
