@@ -68,7 +68,6 @@ public class ShippingInfo {
     public String getCharlotte() {
         return Charlotte;
     }
-
     public double getPriceCharlotte(){
         return PriceCharlotte;
     }
