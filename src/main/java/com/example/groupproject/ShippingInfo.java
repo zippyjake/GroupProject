@@ -7,7 +7,7 @@ public class ShippingInfo {
             "Phone Number: (252)560-2311 \n" +
             "Email: NewBernCapeFearCars@gmail.com";
     private String Wilmington = "Address: 5725 Market St, Wilmington, NC 28405 \n" +
-            "Phone Number: (252)757-3849 \n" +
+            "Phone Number: (919)757-3849 \n" +
             "Email: WilmingtionCapeFearCars@gmail.com";
     private String Raleigh = "Address: 6005 Grove Church Rd suite b, Raleigh, NC 27612 \n" +
             "Phone Number: (919)-845-2321 \n" +
