@@ -118,6 +118,6 @@ public class CarSuperClass {
     //Basic description
     @Override
     public String toString() {
-        return String.format("Manufactured by %s, the %s, Price starting at %f",this.getMake(),this.getModel(),this.getBasePrice());//PLACEHOLDER
+        return String.format("Manufactured by %s, the %s, Price starting at $%f",this.getMake(),this.getModel(),this.getBasePrice());//PLACEHOLDER
     }
 }
