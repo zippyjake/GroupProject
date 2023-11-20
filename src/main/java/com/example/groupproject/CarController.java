@@ -32,7 +32,7 @@ public class CarController {
     private CheckBox leatherBox;
 
     @FXML
-    private ChoiceBox<?> locationChoiceBox;
+    private ChoiceBox<String> locationChoiceBox;
 
     @FXML
     private ChoiceBox<String> modelChoiceBox;
@@ -41,7 +41,13 @@ public class CarController {
     private Label modelLabel;
 
     @FXML
-    private ChoiceBox<?> paymentChoiceBox;
+    private ChoiceBox<String> paymentChoiceBox;
+
+    @FXML
+    private Label paymentLabel;
+
+    @FXML
+    private Label shipmentLabel;
 
     @FXML
     private TextField totalTextField;
@@ -60,6 +66,8 @@ public class CarController {
     private String[] modelData = {"Mangler", "Longitude", "ScaleMock", "Collaborator", "Cord", "Civil", "CP-R"};
         // Change to Initialized Cars
     private String[] colorData = {"Black", "Silver", "Red", "Blue", "Electric Green"};
+    private String[] locationData = {"Charlotte", "Wilmington", "Raleigh", "Boone", "Greensboro", "New Bern"};
+    private String[] paymentData = {"Pay in Full", "Lease"};
 
 
     public void initialize(){
@@ -70,6 +78,19 @@ public class CarController {
         colorChoiceBox.getItems().addAll(colorData);
         colorChoiceBox.setOnAction(this::getColorData);
         colorChoiceBox.getSelectionModel().selectFirst();
+
+        drivingBox.setOnAction(this::drivingBoxSelect);
+        leatherBox.setOnAction(this::leatherBoxSelect);
+        windowLabel.setOnAction(this::windowBoxSelect);
+        cellularBox.setOnAction(this::cellularBoxSelect);
+
+        locationChoiceBox.getItems().addAll(locationData);
+        locationChoiceBox.setOnAction(this::getLocationData);
+        locationChoiceBox.getSelectionModel().selectFirst();
+
+        paymentChoiceBox.getItems().addAll(paymentData);
+        paymentChoiceBox.setOnAction(this::getPaymentData);
+        paymentChoiceBox.getSelectionModel().selectFirst();
 
     }
 
@@ -120,6 +141,78 @@ public class CarController {
                 break;
         }
     }
+
+    private void drivingBoxSelect(ActionEvent event){
+        if (drivingBox.isSelected()) {
+            drivingBox.setText("Driving Assist (Selected)");
+        }
+        else {
+            drivingBox.setText("Driving Assist");
+        }
+    }
+    private void leatherBoxSelect(ActionEvent event){
+        if (leatherBox.isSelected()) {
+            leatherBox.setText("Leather Interior (Selected)");
+        }
+        else {
+            leatherBox.setText("Leather Interior");
+        }
+    }
+
+    private void windowBoxSelect(ActionEvent event){
+        if (windowLabel.isSelected()) {
+            windowLabel.setText("Tinted Windows (Selected)");
+        }
+        else {
+            windowLabel.setText("Tinted Windows");
+        }
+    }
+
+    private void cellularBoxSelect(ActionEvent event){
+        if (cellularBox.isSelected()) {
+            cellularBox.setText("Cellular Selected");
+        }
+        else {
+            cellularBox.setText("Cellular");
+        }
+    }
+
+    private void getLocationData(ActionEvent event) {
+        String locationChoice = locationChoiceBox.getValue();
+        switch (locationChoice) {
+            case "Charlotte":
+                shipmentLabel.setText("Location set to Charlotte");
+                break;
+            case "Wilmington":
+                shipmentLabel.setText("Location set to Wilmington");
+                break;
+            case "Raleigh":
+                shipmentLabel.setText("Location set to Raleigh");
+                break;
+            case "Boone":
+                shipmentLabel.setText("Location set to Boone");
+                break;
+            case "Greensboro":
+                shipmentLabel.setText("Location set to Greensboro");
+                break;
+            case "New Bern":
+                shipmentLabel.setText("Location set to New Bern");
+                break;
+        }
+    }
+
+    private void getPaymentData(ActionEvent event) {
+        String paymentChoice = paymentChoiceBox.getValue();
+        switch (paymentChoice) {
+            case "Pay in Full":
+                paymentLabel.setText("Full Payment");
+                break;
+            case "Lease":
+                paymentLabel.setText("Total, You will pay XXX per month");
+                break;
+        }
+    }
+
 
 
 
