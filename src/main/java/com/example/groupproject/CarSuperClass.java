@@ -113,11 +113,11 @@ public class CarSuperClass {
 
     //detailed description
     public String getDesc(){
-        return String.format("%s %s",this.getMake(),this.getModel());//PLACEHOLDER
+        return String.format("Manufactured by %s, the %s, Price starting at %f",this.getMake(),this.getModel(),this.getBasePrice());//PLACEHOLDER
     }
     //Basic description
     @Override
     public String toString() {
-        return String.format("%s %s",this.getMake(),this.getModel());//PLACEHOLDER
+        return String.format("Manufactured by %s, the %s, Price starting at %f",this.getMake(),this.getModel(),this.getBasePrice());//PLACEHOLDER
     }
 }
