@@ -56,9 +56,16 @@ public class CarController {
     private CheckBox windowLabel;
 
     // Car Creation
-        // Initialize Cars Here
+    CarSuperClass car1 = new CarSuperClass("Make1", "Model1", "Black", false, false, false, false, 1000, 2200);
+    CarSuperClass car2 = new CarSuperClass("Make2", "Model2", "Black", false, false, false, false, 1000, 2200);
+    CarSuperClass car3 = new CarSuperClass("Make3", "Model3", "Black", false, false, false, false, 1000, 2200);
+    CarSuperClass car4 = new CarSuperClass("Make4", "Model4", "Black", false, false, false, false, 1000, 2200);
+    CarSuperClass car5 = new CarSuperClass("Make5", "Model5", "Black", false, false, false, false, 1000, 2200);
+    CarSuperClass car6 = new CarSuperClass("Make6", "Model6", "Black", false, false, false, false, 1000, 2200);
+    CarSuperClass car7 = new CarSuperClass("Make7", "Model7", "Black", false, false, false, false, 1000, 2200);
 
     // Create a Temp Car Object for easy selection
+    CarSuperClass currentCar = car1;
 
     ColorInfo colorInfo = new ColorInfo();
     ShippingInfo shippingInfo = new ShippingInfo();
@@ -99,82 +106,139 @@ public class CarController {
         String modelChoice = modelChoiceBox.getValue();
         switch (modelChoice) {
             case "Mangler":
-                modelLabel.setText("This is a Mangler");
+                currentCar = car1;
+                modelLabel.setText(currentCar.toString());
                 break;
             case "Longitude":
-                modelLabel.setText("This is a Longitude");
+                currentCar = car2;
+                modelLabel.setText(currentCar.toString());
                 break;
             case "ScaleMock":
-                modelLabel.setText("Thus is a ScaleMock");
+                currentCar = car3;
+                modelLabel.setText(currentCar.toString());
                 break;
             case "Collaborator":
-                modelLabel.setText("This is a Collaborator");
+                currentCar = car4;
+                modelLabel.setText(currentCar.toString());
                 break;
             case "Cord":
-                modelLabel.setText("This is a Cord");
+                currentCar = car5;
+                modelLabel.setText(currentCar.toString());
                 break;
             case "Civil":
-                modelLabel.setText("This is a Civil");
+                currentCar = car6;
+                modelLabel.setText(currentCar.toString());
                 break;
             case "CP-R":
-                modelLabel.setText("This is a CP-R");
+                currentCar = car7;
+                modelLabel.setText(currentCar.toString());
                 break;
         }
+
+        currentCar.setColor(colorChoiceBox.getValue());
+
+        if (drivingBox.isSelected()) {
+            drivingBox.setText("Driving Assist (Selected)");
+            currentCar.setAssist(true);
+        }
+        else {
+            drivingBox.setText("Driving Assist");
+            currentCar.setAssist(false);
+        }
+        if (leatherBox.isSelected()) {
+            leatherBox.setText("Leather Interior (Selected)");
+            currentCar.setLeather(true);
+        }
+        else {
+            leatherBox.setText("Leather Interior");
+            currentCar.setLeather(false);
+        }
+        if (windowLabel.isSelected()) {
+            windowLabel.setText("Tinted Windows (Selected)");
+            currentCar.setTinted(true);
+        }
+        else {
+            windowLabel.setText("Tinted Windows");
+            currentCar.setTinted(false);
+        }
+        if (cellularBox.isSelected()) {
+            cellularBox.setText("Cellular (Selected)");
+            currentCar.setCellular(true);
+        }
+        else {
+            cellularBox.setText("Cellular");
+            currentCar.setCellular(false);
+        }
+
     }
 
     private void getColorData(ActionEvent event){
         String colorChoice = colorChoiceBox.getValue();
         switch (colorChoice) {
             case "Black":
+                currentCar.setColor(colorChoice);
                 colorLabel.setText(colorInfo.getBlack());
                 break;
             case "Silver":
+                currentCar.setColor(colorChoice);
                 colorLabel.setText(colorInfo.getSilver());
                 break;
             case "Red":
+                currentCar.setColor(colorChoice);
                 colorLabel.setText(colorInfo.getRed());
                 break;
             case "Blue":
+                currentCar.setColor(colorChoice);
                 colorLabel.setText(colorInfo.getBlue());
                 break;
             case "Electric Green":
+                currentCar.setColor(colorChoice);
                 colorLabel.setText(colorInfo.getGreen());
                 break;
         }
+
     }
 
     private void drivingBoxSelect(ActionEvent event){
         if (drivingBox.isSelected()) {
             drivingBox.setText("Driving Assist (Selected)");
+            currentCar.setAssist(true);
         }
         else {
             drivingBox.setText("Driving Assist");
+            currentCar.setAssist(false);
         }
     }
     private void leatherBoxSelect(ActionEvent event){
         if (leatherBox.isSelected()) {
             leatherBox.setText("Leather Interior (Selected)");
+            currentCar.setLeather(true);
         }
         else {
             leatherBox.setText("Leather Interior");
+            currentCar.setLeather(false);
         }
     }
 
     private void windowBoxSelect(ActionEvent event){
         if (windowLabel.isSelected()) {
             windowLabel.setText("Tinted Windows (Selected)");
+            currentCar.setTinted(true);
         }
         else {
             windowLabel.setText("Tinted Windows");
+            currentCar.setTinted(false);
         }
     }
 
     private void cellularBoxSelect(ActionEvent event){
         if (cellularBox.isSelected()) {
             cellularBox.setText("Cellular (Selected)");
+            currentCar.setCellular(true);
         }
         else {
             cellularBox.setText("Cellular");
+            currentCar.setCellular(false);
         }
     }
 
