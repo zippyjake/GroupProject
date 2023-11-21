@@ -116,7 +116,7 @@ public class CarController {
                 modelLabel.setText("This is a Civil");
                 break;
             case "CP-R":
-                modelLabel.setText("This is aCP-R");
+                modelLabel.setText("This is a CP-R");
                 break;
         }
     }
@@ -170,7 +170,7 @@ public class CarController {
 
     private void cellularBoxSelect(ActionEvent event){
         if (cellularBox.isSelected()) {
-            cellularBox.setText("Cellular Selected");
+            cellularBox.setText("Cellular (Selected)");
         }
         else {
             cellularBox.setText("Cellular");

@@ -7,6 +7,6 @@ public class Meep extends CarSuperClass {
     }
     //detailed description
     public String getDesc(){
-        return String.format("%s %s %f",this.getMake(),this.getModel(),this.getTotalCost());//PLACEHOLDER
+        return String.format("Make: %s, Model: %s, Total Cost: %f",this.getMake(),this.getModel(),this.getTotalCost());//PLACEHOLDER
     }
 }
