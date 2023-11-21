@@ -1,23 +1,23 @@
 /**
  ====================================================================
  @author Group 11
- @date 19 NOV 2023
+ @date 21 NOV 2023
  @section CSC 331
- @purpose Group Project - Custom car maker project
+ @purpose Group Project - Car SuperClass
  ====================================================================
  */
 package com.example.groupproject;
 
 public class CarSuperClass {
     //variables
-    private String make;
-    private String model;
+    private String make;//specified by manufacuter subclass
+    private String model;//specified by vehicle subclass
     private String color;
     private Boolean leather;
     private Boolean assist;
     private Boolean tinted;
     private Boolean cellular;
-    private double basePrice;//TEMPORARY
+    private double basePrice;//specified by vehicle subclass
     private double totalCost;
 
     //constructor
@@ -34,8 +34,7 @@ public class CarSuperClass {
         this.totalCost = totalCost;
     }
 
-    //getters and setters
-
+    //Getters
     public String getMake() {
         return make;
     }
@@ -72,6 +71,7 @@ public class CarSuperClass {
         return totalCost;
     }
 
+    //Setters
     public void setMake(String make) {
         this.make = make;
     }
@@ -107,17 +107,37 @@ public class CarSuperClass {
     public void setTotalCost(double totalCost) {
         this.totalCost = totalCost;
     }
+    //Calculate the total price of the vehicle taking into account the premium features
     public void CalculateCost() {
-        this.totalCost = basePrice*1.2;//PLACEHOLDER
+        double newTotal= basePrice;
+        if (getColor().equals( "silver")){
+            newTotal+=10000;//price of color
+        }
+        if (getLeather()){
+            newTotal+= 2500;//price of leather
+        }
+        if (getAssist()){
+            newTotal+=1800;//price of drivers assist
+        }
+        if(getCellular()){
+            newTotal+=300;//price of Car Wi-Fi
+        }
+        if(getTinted()){
+            newTotal+=400;//price of tinted windows
+        }
+
+        this.totalCost = newTotal;
     }
 
-    //detailed description
+    //detailed description- small paragraph
     public String getDesc(){
-        return String.format("Manufactured by %s, the %s, Price starting at %f",this.getMake(),this.getModel(),this.getBasePrice());//PLACEHOLDER
+        return String.format("Manufactured by %s, the %s, Price starting at $%s%n",
+                this.getMake(),this.getModel(),String.format("%.2f",this.getBasePrice()));//PLACEHOLDER
     }
-    //Basic description
+    //Basic description- short summary
     @Override
     public String toString() {
-        return String.format("Manufactured by %s, the %s, Price starting at $%f",this.getMake(),this.getModel(),this.getBasePrice());//PLACEHOLDER
+        return String.format("Manufactured by %s, the %s, starting at $%s",
+                this.getMake(),this.getModel(),String.format("%.2f",this.getBasePrice()));
     }
 }
