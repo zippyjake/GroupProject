@@ -61,6 +61,7 @@ public class CarController {
     // Create a Temp Car Object for easy selection
 
     ColorInfo colorInfo = new ColorInfo();
+    ShippingInfo shippingInfo = new ShippingInfo();
 
     // Data Sets
     private String[] modelData = {"Mangler", "Longitude", "ScaleMock", "Collaborator", "Cord", "Civil", "CP-R"};
@@ -181,22 +182,22 @@ public class CarController {
         String locationChoice = locationChoiceBox.getValue();
         switch (locationChoice) {
             case "Charlotte":
-                shipmentLabel.setText("Location set to Charlotte");
+                shipmentLabel.setText(shippingInfo.getCharlotte());
                 break;
             case "Wilmington":
-                shipmentLabel.setText("Location set to Wilmington");
+                shipmentLabel.setText(shippingInfo.getWilmington());
                 break;
             case "Raleigh":
-                shipmentLabel.setText("Location set to Raleigh");
+                shipmentLabel.setText(shippingInfo.getRaleigh());
                 break;
             case "Boone":
-                shipmentLabel.setText("Location set to Boone");
+                shipmentLabel.setText(shippingInfo.getBoone());
                 break;
             case "Greensboro":
-                shipmentLabel.setText("Location set to Greensboro");
+                shipmentLabel.setText(shippingInfo.getGreensBoro());
                 break;
             case "New Bern":
-                shipmentLabel.setText("Location set to New Bern");
+                shipmentLabel.setText(shippingInfo.getNewBern());
                 break;
         }
     }
