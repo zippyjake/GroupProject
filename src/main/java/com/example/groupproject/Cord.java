@@ -7,6 +7,6 @@ public class Cord extends Ronda{
     }
     //detailed description
     public String getDesc(){
-        return String.format("Make: %s, Model: %s, Total Cost: %f",this.getMake(),this.getModel(),this.getTotalCost());//PLACEHOLDER
+        return String.format("Introducing the Cord—a stylish sedan that combines comfort and performance. With its sleek design and fuel efficiency, it's perfect for both city commuting and long drives. The Cord offers a spacious and modern interior, packed with tech features for a connected driving experience. Known for its reliability, this sedan delivers a smooth ride and stands out as a practical yet sophisticated choice for those seeking a well-rounded driving experience.",this.getMake(),this.getModel(),this.getTotalCost());//PLACEHOLDER
     }
 }
