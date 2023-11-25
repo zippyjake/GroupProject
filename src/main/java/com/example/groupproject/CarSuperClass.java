@@ -130,7 +130,6 @@ public class CarSuperClass {
     }
 
     //detailed description- small paragraph
-    //detailed description- small paragraph
     public String getDesc(){
         String description = String.format("Manufactured by %s, the %s comes in a %s color.%n",this.getMake(),this.getModel(),this.getColor());
         
