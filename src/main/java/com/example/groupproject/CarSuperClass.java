@@ -130,9 +130,26 @@ public class CarSuperClass {
     }
 
     //detailed description- small paragraph
+    //detailed description- small paragraph
     public String getDesc(){
-        return String.format("Manufactured by %s, the %s, Price starting at $%s%n",
-                this.getMake(),this.getModel(),String.format("%.2f",this.getBasePrice()));//PLACEHOLDER
+        String description = String.format("Manufactured by %s, the %s comes in a %s color.%n",this.getMake(),this.getModel(),this.getColor());
+        
+        // if statements to check if the car has the premium features
+        if (this.getLeather()){
+            description += "The interior is lined with premium leather seats, providing the utmost comfort and luxury.%n";
+        }
+        if (this.getAssist()){
+            description += "The vehicle is equipped with a driver's assistance package, which includes adaptive cruise control, lane keep assist, and blind spot monitoring.%n";
+        }
+        if (this.getCellular()){
+            description += "The vehicle is equipped with a cellular modem, providing Wi-Fi connectivity for all passengers.%n";
+        }
+        if (this.getTinted()){
+            description += "The vehicle is equipped with tinted windows, providing privacy and protection from the sun.%n";
+        }
+        description += String.format("The total cost of this vehicle is $%.2f.%n",this.getTotalCost());
+
+        return description;
     }
     //Basic description- short summary
     @Override
