@@ -1,5 +1,15 @@
-package com.example.groupproject;
+/**
+ *@Purpose: The purpose of this program is to create an app that always the user to
+ * choose the make of the car, the model, the model, the location to deliver it to, the payment
+ * type that they wish to do either pay in full or lease it. This app will also show the description
+ * of each model car and will also allow the user to choose what features the user wishes to have on their
+ * car.
+ * @Author: Jake Seeber, Quinn Frank, Enrique Leon, Brett Bowling, Stephon Johnson
+ * @Date: 11/19/2023
+ * @Section: CSC 331-001-002-003
+ */
 
+package com.example.groupproject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
@@ -110,6 +120,7 @@ public class CarController {
         paymentChoiceBox.setOnAction(this::getPaymentData);
         paymentChoiceBox.getSelectionModel().selectFirst();
 
+        //Here we assign each image to a color as well show how to find the image
         colorToImagePathMap.put("Black", "/images/BlackJeep.jpg");
         colorToImagePathMap.put("Silver", "/images/silverJeep.jpg");
         colorToImagePathMap.put("Blue", "/images/blueJeep.jpg");
@@ -192,6 +203,7 @@ public class CarController {
     private void getColorData(ActionEvent event){
         String colorChoice = colorChoiceBox.getValue();
 
+        //This will help with what image is corresponding with what color the user has chosen
         String imagePath = colorToImagePathMap.get(colorChoice);
 
         switch (colorChoice) {

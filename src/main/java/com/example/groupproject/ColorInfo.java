@@ -1,5 +1,7 @@
 package com.example.groupproject;
 
+//here we create a public class for each color as well as each color having its
+//own description on what the color should look like.
 public class ColorInfo {
 
     private String black = "Introducing the epitome of sleek sophistication and timeless elegance: the Black Panther of " +
