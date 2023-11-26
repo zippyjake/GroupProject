@@ -59,4 +59,5 @@ public class ColorInfo {
     public String getSilver() {
         return silver;
     }
+
 }

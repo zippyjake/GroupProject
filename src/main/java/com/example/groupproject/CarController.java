@@ -6,7 +6,14 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
+
+
 
 public class CarController {
 
@@ -55,6 +62,9 @@ public class CarController {
     @FXML
     private CheckBox windowLabel;
 
+    private Map<String, String> colorToImagePathMap = new HashMap<>();
+
+
     // Car Creation
     CarSuperClass car1 = new CarSuperClass("Make1", "Model1", "Black", false, false, false, false, 1000, 2200);
     CarSuperClass car2 = new CarSuperClass("Make2", "Model2", "Black", false, false, false, false, 1000, 2200);
@@ -100,8 +110,15 @@ public class CarController {
         paymentChoiceBox.setOnAction(this::getPaymentData);
         paymentChoiceBox.getSelectionModel().selectFirst();
 
-    }
+        colorToImagePathMap.put("Black", "/images/BlackJeep.jpg");
+        colorToImagePathMap.put("Silver", "/images/silverJeep.jpg");
+        colorToImagePathMap.put("Blue", "/images/blueJeep.jpg");
+        colorToImagePathMap.put("Red", "/images/redJeep.jpg");
+        colorToImagePathMap.put("Electric Green", "/images/electricGreenJeep.jpg");
 
+
+
+    }
     private void getModelData(ActionEvent event) {
         String modelChoice = modelChoiceBox.getValue();
         switch (modelChoice) {
@@ -174,26 +191,34 @@ public class CarController {
 
     private void getColorData(ActionEvent event){
         String colorChoice = colorChoiceBox.getValue();
+
+        String imagePath = colorToImagePathMap.get(colorChoice);
+
         switch (colorChoice) {
             case "Black":
                 currentCar.setColor(colorChoice);
                 colorLabel.setText(colorInfo.getBlack());
+                updateCarImage(imagePath);
                 break;
             case "Silver":
                 currentCar.setColor(colorChoice);
                 colorLabel.setText(colorInfo.getSilver());
+                updateCarImage(imagePath);
                 break;
             case "Red":
                 currentCar.setColor(colorChoice);
                 colorLabel.setText(colorInfo.getRed());
+                updateCarImage(imagePath);
                 break;
             case "Blue":
                 currentCar.setColor(colorChoice);
                 colorLabel.setText(colorInfo.getBlue());
+                updateCarImage(imagePath);
                 break;
             case "Electric Green":
                 currentCar.setColor(colorChoice);
                 colorLabel.setText(colorInfo.getGreen());
+                updateCarImage(imagePath);
                 break;
         }
 
@@ -277,5 +302,19 @@ public class CarController {
                 break;
         }
     }
+
+
+    private void updateCarImage(String imagePath) {
+        InputStream inputStream = getClass().getResourceAsStream(imagePath);
+        if (inputStream != null) {
+            Image carImage = new Image(inputStream);
+            carImageView.setImage(carImage);
+        } else {
+            System.out.println("Image file not found: " + imagePath);
+        }
+    }
+
+
+
 
 }
