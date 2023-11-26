@@ -120,8 +120,10 @@ public class CarController {
         paymentChoiceBox.setOnAction(this::getPaymentData);
         paymentChoiceBox.getSelectionModel().selectFirst();
 
+        setDefaultImage();
+
         //Here we assign each image to a color as well show how to find the image
-        colorToImagePathMap.put("Black", "/images/BlackJeep.jpg");
+        colorToImagePathMap.put("Black", "/images/blackJeep.jpg");
         colorToImagePathMap.put("Silver", "/images/silverJeep.jpg");
         colorToImagePathMap.put("Blue", "/images/blueJeep.jpg");
         colorToImagePathMap.put("Red", "/images/redJeep.jpg");
@@ -200,41 +202,83 @@ public class CarController {
 
     }
 
-    private void getColorData(ActionEvent event){
-        String colorChoice = colorChoiceBox.getValue();
+//    private void getColorData(ActionEvent event){
+//        String colorChoice = colorChoiceBox.getValue();
+//
+//        //This will help with what image is corresponding with what color the user has chosen
+//        String imagePath = colorToImagePathMap.get(colorChoice);
+//
+//        switch (colorChoice) {
+//            case "Black":
+//                currentCar.setColor(colorChoice);
+//                colorLabel.setText(colorInfo.getBlack());
+//                updateCarImage(imagePath);
+//                break;
+//            case "Silver":
+//                currentCar.setColor(colorChoice);
+//                colorLabel.setText(colorInfo.getSilver());
+//                updateCarImage(imagePath);
+//                break;
+//            case "Red":
+//                currentCar.setColor(colorChoice);
+//                colorLabel.setText(colorInfo.getRed());
+//                updateCarImage(imagePath);
+//                break;
+//            case "Blue":
+//                currentCar.setColor(colorChoice);
+//                colorLabel.setText(colorInfo.getBlue());
+//                updateCarImage(imagePath);
+//                break;
+//            case "Electric Green":
+//                currentCar.setColor(colorChoice);
+//                colorLabel.setText(colorInfo.getGreen());
+//                updateCarImage(imagePath);
+//                break;
+//        }
+//
+//    }
+private void getColorData(ActionEvent event) {
+    String colorChoice = colorChoiceBox.getValue();
 
-        //This will help with what image is corresponding with what color the user has chosen
+    if (colorChoice != null) {
+        // This will help with what image is corresponding with what color the user has chosen
         String imagePath = colorToImagePathMap.get(colorChoice);
 
-        switch (colorChoice) {
-            case "Black":
-                currentCar.setColor(colorChoice);
-                colorLabel.setText(colorInfo.getBlack());
-                updateCarImage(imagePath);
-                break;
-            case "Silver":
-                currentCar.setColor(colorChoice);
-                colorLabel.setText(colorInfo.getSilver());
-                updateCarImage(imagePath);
-                break;
-            case "Red":
-                currentCar.setColor(colorChoice);
-                colorLabel.setText(colorInfo.getRed());
-                updateCarImage(imagePath);
-                break;
-            case "Blue":
-                currentCar.setColor(colorChoice);
-                colorLabel.setText(colorInfo.getBlue());
-                updateCarImage(imagePath);
-                break;
-            case "Electric Green":
-                currentCar.setColor(colorChoice);
-                colorLabel.setText(colorInfo.getGreen());
-                updateCarImage(imagePath);
-                break;
+        if (imagePath != null) {
+            switch (colorChoice) {
+                case "Black":
+                    currentCar.setColor(colorChoice);
+                    colorLabel.setText(colorInfo.getBlack());
+                    updateCarImage(imagePath);
+                    break;
+                case "Silver":
+                    currentCar.setColor(colorChoice);
+                    colorLabel.setText(colorInfo.getSilver());
+                    updateCarImage(imagePath);
+                    break;
+                case "Red":
+                    currentCar.setColor(colorChoice);
+                    colorLabel.setText(colorInfo.getRed());
+                    updateCarImage(imagePath);
+                    break;
+                case "Blue":
+                    currentCar.setColor(colorChoice);
+                    colorLabel.setText(colorInfo.getBlue());
+                    updateCarImage(imagePath);
+                    break;
+                case "Electric Green":
+                    currentCar.setColor(colorChoice);
+                    colorLabel.setText(colorInfo.getGreen());
+                    updateCarImage(imagePath);
+                    break;
+            }
+        } else {
+            System.out.println("Image path for color '" + colorChoice + "' is null");
         }
-
+    } else {
+        System.out.println("Color choice is null");
     }
+}
 
     private void drivingBoxSelect(ActionEvent event){
         if (drivingBox.isSelected()) {
@@ -324,12 +368,27 @@ public class CarController {
                 carImageView.setImage(carImage);
             } else {
                 System.out.println("Image file not found: " + imagePath);
+                // You can set a default image here if desired
+                // Example: carImageView.setImage(new Image("/images/defaultImage.jpg"));
             }
         } else {
             System.out.println("Image path is null");
+            // You can set a default image here if desired
+            // Example: carImageView.setImage(new Image("/images/defaultImage.jpg"));
         }
     }
 
+    private String defaultImagePath = "/images/defaultImage.jpg";
+
+    private void setDefaultImage() {
+        InputStream defaultImageStream = getClass().getResourceAsStream(defaultImagePath);
+        if (defaultImageStream != null) {
+            Image defaultImage = new Image(defaultImageStream);
+            carImageView.setImage(defaultImage);
+        } else {
+            System.out.println("Default image file not found: " + defaultImagePath);
+        }
+    }
 
 
 
