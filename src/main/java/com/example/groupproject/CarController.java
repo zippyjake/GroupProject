@@ -317,12 +317,16 @@ public class CarController {
 
 
     private void updateCarImage(String imagePath) {
-        InputStream inputStream = getClass().getResourceAsStream(imagePath);
-        if (inputStream != null) {
-            Image carImage = new Image(inputStream);
-            carImageView.setImage(carImage);
+        if (imagePath != null) {
+            InputStream inputStream = getClass().getResourceAsStream(imagePath);
+            if (inputStream != null) {
+                Image carImage = new Image(inputStream);
+                carImageView.setImage(carImage);
+            } else {
+                System.out.println("Image file not found: " + imagePath);
+            }
         } else {
-            System.out.println("Image file not found: " + imagePath);
+            System.out.println("Image path is null");
         }
     }
 
