@@ -18,6 +18,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 
 import java.io.InputStream;
 import java.util.HashMap;
@@ -76,13 +78,14 @@ public class CarController {
 
 
     // Car Creation
-    CarSuperClass car1 = new CarSuperClass("Make1", "Model1", "Black", false, false, false, false, 1000, 2200);
-    CarSuperClass car2 = new CarSuperClass("Make2", "Model2", "Black", false, false, false, false, 1000, 2200);
-    CarSuperClass car3 = new CarSuperClass("Make3", "Model3", "Black", false, false, false, false, 1000, 2200);
-    CarSuperClass car4 = new CarSuperClass("Make4", "Model4", "Black", false, false, false, false, 1000, 2200);
-    CarSuperClass car5 = new CarSuperClass("Make5", "Model5", "Black", false, false, false, false, 1000, 2200);
-    CarSuperClass car6 = new CarSuperClass("Make6", "Model6", "Black", false, false, false, false, 1000, 2200);
-    CarSuperClass car7 = new CarSuperClass("Make7", "Model7", "Black", false, false, false, false, 1000, 2200);
+    Mangler car1 = new Mangler("Black", false, false, false, false, 1000, 2200);
+    Longitude car2 = new Longitude("Black", false, false, false, false, 1000, 2200);
+    ScaleMock car3 = new ScaleMock("Black", false, false, false, false, 1000, 2200);
+    Collaborator car4 = new Collaborator("Black", false, false, false, false, 1000, 2200);
+    Cord car5 = new Cord("Black", false, false, false, false, 1000, 2200);
+    Civil car6 = new Civil("Black", false, false, false, false, 1000, 2200);
+    CPR car7 = new CPR("Black", false, false, false, false, 1000, 2200);
+
 
     // Create a Temp Car Object for easy selection
     CarSuperClass currentCar = car1;
@@ -129,6 +132,8 @@ public class CarController {
         colorToImagePathMap.put("Red", "/images/redJeep.jpg");
         colorToImagePathMap.put("Electric Green", "/images/electricGreenJeep.jpg");
 
+        descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
+
 
 
     }
@@ -138,30 +143,37 @@ public class CarController {
             case "Mangler":
                 currentCar = car1;
                 modelLabel.setText(currentCar.toString());
+                descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
                 break;
             case "Longitude":
                 currentCar = car2;
                 modelLabel.setText(currentCar.toString());
+                descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
                 break;
             case "ScaleMock":
                 currentCar = car3;
                 modelLabel.setText(currentCar.toString());
+                descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
                 break;
             case "Collaborator":
                 currentCar = car4;
                 modelLabel.setText(currentCar.toString());
+                descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
                 break;
             case "Cord":
                 currentCar = car5;
                 modelLabel.setText(currentCar.toString());
+                descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
                 break;
             case "Civil":
                 currentCar = car6;
                 modelLabel.setText(currentCar.toString());
+                descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
                 break;
             case "CP-R":
                 currentCar = car7;
                 modelLabel.setText(currentCar.toString());
+                descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
                 break;
         }
 
@@ -170,34 +182,42 @@ public class CarController {
         if (drivingBox.isSelected()) {
             drivingBox.setText("Driving Assist (Selected)");
             currentCar.setAssist(true);
+            descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
         }
         else {
             drivingBox.setText("Driving Assist");
             currentCar.setAssist(false);
+            descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
         }
         if (leatherBox.isSelected()) {
             leatherBox.setText("Leather Interior (Selected)");
             currentCar.setLeather(true);
+            descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
         }
         else {
             leatherBox.setText("Leather Interior");
             currentCar.setLeather(false);
+            descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
         }
         if (windowLabel.isSelected()) {
             windowLabel.setText("Tinted Windows (Selected)");
             currentCar.setTinted(true);
+            descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
         }
         else {
             windowLabel.setText("Tinted Windows");
             currentCar.setTinted(false);
+            descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
         }
         if (cellularBox.isSelected()) {
             cellularBox.setText("Cellular (Selected)");
             currentCar.setCellular(true);
+            descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
         }
         else {
             cellularBox.setText("Cellular");
             currentCar.setCellular(false);
+            descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
         }
 
     }
@@ -243,31 +263,37 @@ private void getColorData(ActionEvent event) {
     if (colorChoice != null) {
         // This will help with what image is corresponding with what color the user has chosen
         String imagePath = colorToImagePathMap.get(colorChoice);
+        colorLabel.setText(colorInfo.getBlack());
 
         if (imagePath != null) {
             switch (colorChoice) {
                 case "Black":
                     currentCar.setColor(colorChoice);
+                    descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
                     colorLabel.setText(colorInfo.getBlack());
                     updateCarImage(imagePath);
                     break;
                 case "Silver":
                     currentCar.setColor(colorChoice);
+                    descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
                     colorLabel.setText(colorInfo.getSilver());
                     updateCarImage(imagePath);
                     break;
                 case "Red":
                     currentCar.setColor(colorChoice);
+                    descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
                     colorLabel.setText(colorInfo.getRed());
                     updateCarImage(imagePath);
                     break;
                 case "Blue":
                     currentCar.setColor(colorChoice);
+                    descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
                     colorLabel.setText(colorInfo.getBlue());
                     updateCarImage(imagePath);
                     break;
                 case "Electric Green":
                     currentCar.setColor(colorChoice);
+                    descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
                     colorLabel.setText(colorInfo.getGreen());
                     updateCarImage(imagePath);
                     break;
@@ -284,20 +310,24 @@ private void getColorData(ActionEvent event) {
         if (drivingBox.isSelected()) {
             drivingBox.setText("Driving Assist (Selected)");
             currentCar.setAssist(true);
+            descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
         }
         else {
             drivingBox.setText("Driving Assist");
             currentCar.setAssist(false);
+            descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
         }
     }
     private void leatherBoxSelect(ActionEvent event){
         if (leatherBox.isSelected()) {
             leatherBox.setText("Leather Interior (Selected)");
             currentCar.setLeather(true);
+            descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
         }
         else {
             leatherBox.setText("Leather Interior");
             currentCar.setLeather(false);
+            descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
         }
     }
 
@@ -305,10 +335,12 @@ private void getColorData(ActionEvent event) {
         if (windowLabel.isSelected()) {
             windowLabel.setText("Tinted Windows (Selected)");
             currentCar.setTinted(true);
+            descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
         }
         else {
             windowLabel.setText("Tinted Windows");
             currentCar.setTinted(false);
+            descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
         }
     }
 
@@ -316,10 +348,12 @@ private void getColorData(ActionEvent event) {
         if (cellularBox.isSelected()) {
             cellularBox.setText("Cellular (Selected)");
             currentCar.setCellular(true);
+            descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
         }
         else {
             cellularBox.setText("Cellular");
             currentCar.setCellular(false);
+            descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
         }
     }
 
