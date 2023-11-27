@@ -114,16 +114,16 @@ public class CarSuperClass {
             newTotal+=10000;//price of color
         }
         if (getLeather()){
-            newTotal+= 2500;//price of leather
+            newTotal+= 5000;//price of leather
         }
         if (getAssist()){
-            newTotal+=1800;//price of drivers assist
+            newTotal+=2500;//price of drivers assist
         }
         if(getCellular()){
-            newTotal+=300;//price of Car Wi-Fi
+            newTotal+=2000;//price of Car Wi-Fi
         }
         if(getTinted()){
-            newTotal+=400;//price of tinted windows
+            newTotal+=1000;//price of tinted windows
         }
 
         this.totalCost = newTotal;

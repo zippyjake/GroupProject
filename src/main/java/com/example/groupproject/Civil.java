@@ -7,9 +7,26 @@ public class Civil extends Ronda{
     }
     //detailed description
     public String getDesc(){
-        return String.format("Introducing the Civil—a compact car that's big on style and reliability. With its sleek " +
+        String description = String.format("Introducing the Civil—a compact car that's big on style and reliability. With its sleek " +
                 "design and fuel efficiency, it's perfect for zipping around town. The Civil offers a comfortable ride, " +
                 "modern features, and a reputation for dependability. Whether you're commuting or cruising, the Civil is " +
-                "your go-to choice for a practical and enjoyable drive.",this.getMake(),this.getModel(),this.getTotalCost());//PLACEHOLDER
+                "your go-to choice for a practical and enjoyable drive.");//PLACEHOLDER
+
+        if (this.getLeather() == true) {
+            description += "\n\u2022 The interior is lined with premium leather seats, providing the utmost comfort and luxury. ";
+        }
+        if(this. getAssist() == true) {
+            description += "\n\u2022 The vehicle is equipped with a driver's assistance package, which includes adaptive cruise control, lane keep assist, and blind spot monitoring. ";
+        }
+        if (this.getCellular() == true){
+            description += "\n\u2022 The vehicle is equipped with a cellular modem, providing Wi-Fi connectivity for all passengers. ";
+        }
+        if (this.getTinted() == true){
+            description += "\n\u2022 The vehicle is equipped with tinted windows, providing privacy and protection from the sun. ";
+        }
+
+        description += String.format("\nThe total cost of the vehicle is $" );
+
+        return description;
     }
 }

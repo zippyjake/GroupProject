@@ -15,19 +15,19 @@ public class Mangler extends Meep{
                 "a versatile ride that effortlessly blends luxury, sports, and off-road capability for an extraordinary" +
                 " driving journey. "); //PLACEHOLDER
         if (this.getLeather() == true) {
-            description += "The interior is lined with premium leather seats, providing the utmost comfort and luxury. ";
+            description += "\n\u2022The interior is lined with premium leather seats, providing the utmost comfort and luxury. ";
         }
         if(this. getAssist() == true) {
-            description += "The vehicle is equipped with a driver's assistance package, which includes adaptive cruise control, lane keep assist, and blind spot monitoring. ";
+            description += "\n\u2022 The vehicle is equipped with a driver's assistance package, which includes adaptive cruise control, lane keep assist, and blind spot monitoring. ";
         }
         if (this.getCellular() == true){
-            description += "The vehicle is equipped with a cellular modem, providing Wi-Fi connectivity for all passengers. ";
+            description += "\n\u2022 The vehicle is equipped with a cellular modem, providing Wi-Fi connectivity for all passengers. ";
         }
         if (this.getTinted() == true){
-            description += "The vehicle is equipped with tinted windows, providing privacy and protection from the sun. ";
+            description += "\n\u2022 The vehicle is equipped with tinted windows, providing privacy and protection from the sun. ";
         }
 
-        description += String.format("The total cost of the vehicle is $" );
+        description += String.format("\nThe total cost of the vehicle is $" );
 
         return description;
     }

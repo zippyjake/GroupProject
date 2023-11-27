@@ -7,11 +7,28 @@ public class Collaborator extends Meep{
     }
     //detailed description
     public String getDesc(){
-        return String.format("Introducing the Collaborator—an iconic model that marries classic charm with modern " +
+        String description = String.format("Introducing the Collaborator—an iconic model that marries classic charm with modern " +
                 "flair. With its bold design and spacious interior, it's the epitome of family adventure. The " +
                 "Collaborator offers a comfortable ride and cutting-edge features, making it equally at home in " +
                 "the city or on scenic routes. Known for its durability, this model combines rugged capability " +
                 "with a touch of luxury, making the Collaborator the perfect choice for those seeking a versatile " +
-                "and stylish driving experience.",this.getMake(),this.getModel(),this.getTotalCost());//PLACEHOLDER
+                "and stylish driving experience.");//PLACEHOLDER
+
+        if (this.getLeather() == true) {
+            description += "\n\u2022 The interior is lined with premium leather seats, providing the utmost comfort and luxury. ";
+        }
+        if(this. getAssist() == true) {
+            description += "\n\u2022 The vehicle is equipped with a driver's assistance package, which includes adaptive cruise control, lane keep assist, and blind spot monitoring. ";
+        }
+        if (this.getCellular() == true){
+            description += "\n\u2022 The vehicle is equipped with a cellular modem, providing Wi-Fi connectivity for all passengers. ";
+        }
+        if (this.getTinted() == true){
+            description += "\n\u2022 The vehicle is equipped with tinted windows, providing privacy and protection from the sun. ";
+        }
+
+        description += String.format("\nThe total cost of the vehicle is $" );
+
+        return description;
     }
 }

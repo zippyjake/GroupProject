@@ -222,41 +222,6 @@ public class CarController {
 
     }
 
-//    private void getColorData(ActionEvent event){
-//        String colorChoice = colorChoiceBox.getValue();
-//
-//        //This will help with what image is corresponding with what color the user has chosen
-//        String imagePath = colorToImagePathMap.get(colorChoice);
-//
-//        switch (colorChoice) {
-//            case "Black":
-//                currentCar.setColor(colorChoice);
-//                colorLabel.setText(colorInfo.getBlack());
-//                updateCarImage(imagePath);
-//                break;
-//            case "Silver":
-//                currentCar.setColor(colorChoice);
-//                colorLabel.setText(colorInfo.getSilver());
-//                updateCarImage(imagePath);
-//                break;
-//            case "Red":
-//                currentCar.setColor(colorChoice);
-//                colorLabel.setText(colorInfo.getRed());
-//                updateCarImage(imagePath);
-//                break;
-//            case "Blue":
-//                currentCar.setColor(colorChoice);
-//                colorLabel.setText(colorInfo.getBlue());
-//                updateCarImage(imagePath);
-//                break;
-//            case "Electric Green":
-//                currentCar.setColor(colorChoice);
-//                colorLabel.setText(colorInfo.getGreen());
-//                updateCarImage(imagePath);
-//                break;
-//        }
-//
-//    }
 private void getColorData(ActionEvent event) {
     String colorChoice = colorChoiceBox.getValue();
 
@@ -311,11 +276,13 @@ private void getColorData(ActionEvent event) {
             drivingBox.setText("Driving Assist (Selected)");
             currentCar.setAssist(true);
             descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
+            updateTotal();
         }
         else {
             drivingBox.setText("Driving Assist");
             currentCar.setAssist(false);
             descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
+            updateTotal();
         }
     }
     private void leatherBoxSelect(ActionEvent event){
@@ -323,11 +290,13 @@ private void getColorData(ActionEvent event) {
             leatherBox.setText("Leather Interior (Selected)");
             currentCar.setLeather(true);
             descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
+            updateTotal();
         }
         else {
             leatherBox.setText("Leather Interior");
             currentCar.setLeather(false);
             descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
+            updateTotal();
         }
     }
 
@@ -336,11 +305,13 @@ private void getColorData(ActionEvent event) {
             windowLabel.setText("Tinted Windows (Selected)");
             currentCar.setTinted(true);
             descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
+            updateTotal();
         }
         else {
             windowLabel.setText("Tinted Windows");
             currentCar.setTinted(false);
             descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
+            updateTotal();
         }
     }
 
@@ -349,11 +320,13 @@ private void getColorData(ActionEvent event) {
             cellularBox.setText("Cellular (Selected)");
             currentCar.setCellular(true);
             descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
+            updateTotal();
         }
         else {
             cellularBox.setText("Cellular");
             currentCar.setCellular(false);
             descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
+            updateTotal();
         }
     }
 
@@ -402,13 +375,11 @@ private void getColorData(ActionEvent event) {
                 carImageView.setImage(carImage);
             } else {
                 System.out.println("Image file not found: " + imagePath);
-                // You can set a default image here if desired
-                // Example: carImageView.setImage(new Image("/images/defaultImage.jpg"));
+
             }
         } else {
             System.out.println("Image path is null");
-            // You can set a default image here if desired
-            // Example: carImageView.setImage(new Image("/images/defaultImage.jpg"));
+
         }
     }
 
@@ -425,5 +396,31 @@ private void getColorData(ActionEvent event) {
     }
 
 
+    private double calculateTotal() {
+        double total = 0.0;
+
+        // Add base price
+        total += currentCar.getBasePrice();
+
+        // Add feature costs
+        if (currentCar.getLeather()) {
+            total += 5000.0;
+        }
+        if (currentCar.getAssist()) {
+            total += 2500;
+        }
+        if (currentCar.getCellular()) {
+            total += 2000.0;
+        }
+        if (currentCar.getTinted()) {
+            total += 1000.0;
+        }
+
+        return total;
+    }
+    private void updateTotal() {
+        double total = calculateTotal();
+        totalTextField.setText(String.format("$%.2f", total));
+    }
 
 }
