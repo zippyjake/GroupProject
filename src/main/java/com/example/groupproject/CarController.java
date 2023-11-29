@@ -132,9 +132,8 @@ public class CarController {
         colorToImagePathMap.put("Red", "/images/redJeep.jpg");
         colorToImagePathMap.put("Electric Green", "/images/electricGreenJeep.jpg");
 
-        descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
-
-
+        updateDescription();
+        updateTotal();
 
     }
     private void getModelData(ActionEvent event) {
@@ -220,6 +219,9 @@ public class CarController {
             descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
         }
 
+        updateTotal();
+        updateDescription();
+
     }
 
 private void getColorData(ActionEvent event) {
@@ -276,28 +278,28 @@ private void getColorData(ActionEvent event) {
             drivingBox.setText("Driving Assist (Selected)");
             currentCar.setAssist(true);
             descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
-            updateTotal();
         }
         else {
             drivingBox.setText("Driving Assist");
             currentCar.setAssist(false);
             descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
-            updateTotal();
         }
+        updateTotal();
+        updateDescription();
     }
     private void leatherBoxSelect(ActionEvent event){
         if (leatherBox.isSelected()) {
             leatherBox.setText("Leather Interior (Selected)");
             currentCar.setLeather(true);
             descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
-            updateTotal();
         }
         else {
             leatherBox.setText("Leather Interior");
             currentCar.setLeather(false);
             descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
-            updateTotal();
         }
+        updateTotal();
+        updateDescription();
     }
 
     private void windowBoxSelect(ActionEvent event){
@@ -305,14 +307,14 @@ private void getColorData(ActionEvent event) {
             windowLabel.setText("Tinted Windows (Selected)");
             currentCar.setTinted(true);
             descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
-            updateTotal();
         }
         else {
             windowLabel.setText("Tinted Windows");
             currentCar.setTinted(false);
             descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
-            updateTotal();
         }
+        updateTotal();
+        updateDescription();
     }
 
     private void cellularBoxSelect(ActionEvent event){
@@ -320,14 +322,14 @@ private void getColorData(ActionEvent event) {
             cellularBox.setText("Cellular (Selected)");
             currentCar.setCellular(true);
             descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
-            updateTotal();
         }
         else {
             cellularBox.setText("Cellular");
             currentCar.setCellular(false);
             descriptionLabel.setText(String.valueOf(currentCar.getDesc()));
-            updateTotal();
         }
+        updateTotal();
+        updateDescription();
     }
 
     private void getLocationData(ActionEvent event) {
@@ -352,6 +354,8 @@ private void getColorData(ActionEvent event) {
                 shipmentLabel.setText(shippingInfo.getNewBern());
                 break;
         }
+        updateTotal();
+        updateDescription();
     }
 
     private void getPaymentData(ActionEvent event) {
@@ -361,7 +365,8 @@ private void getColorData(ActionEvent event) {
                 paymentLabel.setText("Full Payment");
                 break;
             case "Lease":
-                paymentLabel.setText("Total, You will pay XXX per month");
+                double total = calculateTotal() / 12;
+                paymentLabel.setText(String.format("Total, You will pay $%.2f per month", total));
                 break;
         }
     }
@@ -415,12 +420,41 @@ private void getColorData(ActionEvent event) {
         if (currentCar.getTinted()) {
             total += 1000.0;
         }
+        if (locationChoiceBox.getValue() == "Charlotte") {
+            total += 350.0;
+        }
+        if (locationChoiceBox.getValue() == "Wilmington") {
+            total += 50.0;
+        }
+        if (locationChoiceBox.getValue() == "Raleigh") {
+            total += 250.0;
+        }
+        if (locationChoiceBox.getValue() == "Boone") {
+            total += 450.0;
+        }
+        if (locationChoiceBox.getValue() == "Greensboro") {
+            total += 300.0;
+        }
+        if (locationChoiceBox.getValue() == "New Bern") {
+            total += 100.0;
+        }
 
         return total;
     }
     private void updateTotal() {
         double total = calculateTotal();
         totalTextField.setText(String.format("$%.2f", total));
+    }
+
+    private void updateDescription() {
+        double total = calculateTotal();
+        String description = currentCar.getDesc() + String.format("%.2f", total);
+        descriptionLabel.setText(description);
+
+        if (paymentChoiceBox.getValue() == "Lease"){
+            double total2 = calculateTotal() / 12;
+            paymentLabel.setText(String.format("Total, You will pay $%.2f per month", total2));
+        }
     }
 
 }

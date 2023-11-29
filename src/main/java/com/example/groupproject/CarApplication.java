@@ -13,7 +13,7 @@ public class CarApplication extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("Car2.fxml"));
 
         Scene scene = new Scene(root);
-        stage.setTitle("Car2");
+        stage.setTitle("Cape Fear Cars");
         stage.setScene(scene);
         stage.show();
     }
